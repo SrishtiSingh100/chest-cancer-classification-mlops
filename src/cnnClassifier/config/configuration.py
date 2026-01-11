@@ -46,10 +46,11 @@ class ConfigurationManager:
             updated_base_model_path=Path(config.updated_base_model_path),
             params_image_size=self.params.IMAGE_SIZE,
             params_learning_rate=self.params.LEARNING_RATE,
-            params_include_top=self.params.INCLUDE_TOP,
-            params_weights=self.params.WEIGHTS,
+            params_include_top=self.params.INCLUDE_TOP,   # ✅ boolean
+            params_weights=self.params.WEIGHTS,          # ✅ required
             params_classes=self.params.CLASSES
-        )
+)
+
 
         return prepare_base_model_config
     
