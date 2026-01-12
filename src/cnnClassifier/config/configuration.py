@@ -2,9 +2,12 @@ import os
 from pathlib import Path
 from cnnClassifier.constants import *
 from cnnClassifier.utils.common import read_yaml, create_directories
-from cnnClassifier.entity.config_entity import (DataIngestionConfig, 
-                                                  PrepareBaseModelConfig,
-                                                  TrainingConfig)
+from cnnClassifier.entity.config_entity import (
+    DataIngestionConfig,
+    PrepareBaseModelConfig,
+    TrainingConfig,
+    EvaluationConfig
+)
 
 class ConfigurationManager:
     def __init__(
@@ -70,4 +73,20 @@ class ConfigurationManager:
             params_classes=params.CLASSES
         )
 
-        return training_config  # <-- Make sure this is properly indented!
+        return training_config
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = self.config.evaluation
+        
+        create_directories([Path("artifacts/evaluation")])
+        
+        evaluation_config = EvaluationConfig(
+            path_of_model=Path(eval_config.path_of_model),
+            training_data=Path(eval_config.training_data),
+            mlflow_uri=eval_config.mlflow_uri,
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        
+        return evaluation_config
