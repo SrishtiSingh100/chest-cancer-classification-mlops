@@ -1,6 +1,12 @@
 from cnnClassifier.config.configuration import ConfigurationManager
 from cnnClassifier.components.prepare_base_model import PrepareBaseModel
 from cnnClassifier import logger
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers, models  # optional, if you use layers/models directly
+from pathlib import Path
+
+
 
 
 

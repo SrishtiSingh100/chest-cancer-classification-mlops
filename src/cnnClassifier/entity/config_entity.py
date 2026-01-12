@@ -55,6 +55,8 @@ class TrainingConfig:
     params_batch_size: int
     params_is_augmentation: bool
     params_image_size: list
+    params_learning_rate: float  # Add this if missing
+    params_classes: int  # Add this - it's required!
 
 
 
