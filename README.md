@@ -191,7 +191,7 @@ Access the dashboard at `http://localhost:5000` to view experiments, compare mod
 ```bash
 export MLFLOW_TRACKING_URI=https://dagshub.com/SrishtiSingh100/chest-cancer-classification-mlops.mlflow/#/
 export MLFLOW_TRACKING_USERNAME=SrishtiSingh100
-export MLFLOW_TRACKING_PASSWORD=5c15a38015192da271ee09c636aca5caa73d0da9
+export MLFLOW_TRACKING_PASSWORD=
 ```
 
 ### DVC Commands
